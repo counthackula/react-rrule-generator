@@ -14,19 +14,42 @@ const StartOnDate = ({
     options,
   },
   handleChange,
-  translations
+  translations,
 }) => {
-  const CustomCalendar = options.calendarComponent;
   const locale = options.weekStartsOnSunday ? 'en-ca' : 'en-gb';
   const calendarAttributes = {
     'aria-label': translateLabel(translations, 'start.tooltip'),
     value: date,
     dateFormat: DATE_TIME_FORMAT,
     locale,
-    readOnly: true,
+    readOnly: false,
   };
-
   return (
+    <div className="col-6 col-sm-3">
+      <input
+        {...calendarAttributes}
+        type="date"
+        key={`${id}-calendar`}
+        onChange={(event) => {
+              console.log(event.target.value);
+              const editedEvent = {
+                target: {
+                  value: event.target.value,
+                  name: 'start.onDate.date',
+                },
+              };
+
+              handleChange(editedEvent);
+            }}
+        id="start.onDate.date"
+        name="start.onDate.date"
+        required="required"
+        className="form-control"
+      />
+
+    </div>
+  );
+  /* return (
     <div className="col-6 col-sm-3">
       {
         CustomCalendar
@@ -72,7 +95,7 @@ const StartOnDate = ({
           />
       }
     </div>
-  );
+  ); */
 };
 
 StartOnDate.propTypes = {
