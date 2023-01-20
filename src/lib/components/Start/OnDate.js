@@ -20,7 +20,7 @@ const StartOnDate = ({
   const calendarAttributes = {
     'aria-label': translateLabel(translations, 'start.tooltip'),
     value: date,
-    dateFormat: DATE_TIME_FORMAT,
+    // dateFormat: DATE_TIME_FORMAT,
     locale,
     readOnly: false,
   };

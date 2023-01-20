@@ -20,7 +20,7 @@ const EndOnDate = ({
   const calendarAttributes = {
     'aria-label': translateLabel(translations, 'end.tooltip'),
     value: date,
-    dateFormat: DATE_TIME_FORMAT,
+    // dateFormat: DATE_TIME_FORMAT,
     locale,
     readOnly: false,
   };
